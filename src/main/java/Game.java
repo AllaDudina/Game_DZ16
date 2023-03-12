@@ -1,23 +1,23 @@
 import java.util.ArrayList;
 
 public class Game {
-    public static ArrayList<Player> playerList = new ArrayList<>();
+    private ArrayList<Player> playerList = new ArrayList<>();
 
-    public void register(Player player) {
+    protected void register(Player player) {
         playerList.add(player);
 
     }
 
-    public Player findPlayer(String playerName) {
+    protected Player findPlayer(String playerName) {
         for (Player player : playerList) {
-            if (player.getName() == playerName) {
+            if (player.getName().equals(playerName)) {
                 return player;
             }
         }
         return null;
     }
 
-    public int round(String playerName1, String playerName2) throws NotRegisteredException {
+    protected int round(String playerName1, String playerName2) throws NotRegisteredException {
         Player player1 = findPlayer(playerName1);
         Player player2 = findPlayer(playerName2);
 
